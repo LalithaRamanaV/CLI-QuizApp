@@ -59,17 +59,17 @@ quizList = [
 
 function welcomeMessage(){
   console.log(bgGreen("Lalith's Quiz"));
-  console.log("A quiz to check how well do know me? ")
+  console.log("A quiz to check how well do you know me? ")
 
   console.log("\n");
 
 
   var userName = readlineSync.question("Hola! Who's this?\n" );
 
-  console.log( (("Welcome to")+ chalk.blue(" How well do you know Lalitha's quiz ") + chalk.bold.white(userName ) ));
+  console.log( (("Welcome to")+ chalk.cyan(" How well do you know Lalitha's quiz ") + chalk.bold.white(userName ) ));
 
   console.log("Let's play! ");
-  readlineSync.question( chalk.blue("Can you beat this HIGHSCORE " + highscore.topScore +" ? Press enter to play! \n") );
+  readlineSync.question( chalk.cyan("Can you beat this HIGHSCORE " + highscore.topScore +" ? Press enter to play! \n") );
   playGame();
 }
  
@@ -99,14 +99,14 @@ function playGame(){
 }
 
 function displayScore(){
-  console.log((chalk.blue("Hurray! Your total score is " + chalk.green(score))));
+  console.log((chalk.cyan("Hurray! Your total score is " + chalk.green(score))));
 
   if(score > highscore.topScore){
     highscore.topScore = score;
     console.log("Congratulations! You have beaten the highscore");
     console.log("New HIGHSCORE: "+ highscore);
   }
-  console.log(chalk.blue("Thanks for playing. Don't forget to share the screenshot!") );
+  console.log(chalk.cyan("Thanks for playing. Don't forget to share the screenshot!") );
 }
 
 welcomeMessage();
