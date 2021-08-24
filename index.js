@@ -1,7 +1,10 @@
+
+
 var readlineSync = require("readline-sync");
 const chalk = require('chalk');
 const error = chalk.bold.red;
 const correct = chalk.bold.green;
+const bgGreen = chalk.black.bgGreen;
 
 var highscore = { 
   name: "Bhavya",
@@ -11,43 +14,43 @@ var score = 0;
 
 quizList = [
   {
-    question: "What is my zodiac sign? ",
+    question: "What is my zodiac sign? \n",
     answer: "Aries"
   },
   {
-    question: "Am I a beach or mountain person? ",
+    question: "Am I a beach or mountain person?\n ",
     answer: "Beach"
   },
   {
-    question: "Where do I live? ",
+    question: "Where do I live? \n",
     answer: "Visakhapatnam"
   },
   {
-    question: "What is my nickname? ",
+    question: "What is my nickname? \n",
     answer: "Bunny"
   },
   {
-    question: "What is my favourite food? ",
+    question: "What is my favourite food? \n",
     answer: "Biryani"
   },
   {
-    question: "What is favourite dog species? ",
+    question: "What is favourite dog species? \n",
     answer: "Pug"
   },
   {
-    question: "Do I prefer coffee or tea? ",
+    question: "Do I prefer coffee or tea? \n ",
     answer: "Coffee"
   },
    {
-  question : "Guess when is my birthday month? ",
+  question : "Guess when is my birthday month? \n",
   answer: "May"
 },
   {
-    question: "What is my favourite colour? ",
+    question: "What is my favourite colour? \n",
     answer: "Black"
   },
  {
-   question: "What is my hobby? ",
+   question: "What is my hobby? \n",
    answer: "Drawing"
  },
  
@@ -55,16 +58,24 @@ quizList = [
 ]
 
 function welcomeMessage(){
-  var userName = readlineSync.question("Hola! Who's this? " );
-  console.log(chalk.bold.yellow("Welcome to How well do you know Lalitha's quiz " + chalk.bold.white(userName ) ));
+  console.log(bgGreen("Lalith's Quiz"));
+  console.log("A quiz to check how well do know me? ")
+
+  console.log("\n");
+
+
+  var userName = readlineSync.question("Hola! Who's this?\n" );
+
+  console.log( (("Welcome to")+ chalk.blue(" How well do you know Lalitha's quiz ") + chalk.bold.white(userName ) ));
+
   console.log("Let's play! ");
-  readlineSync.question( chalk.yellow("Can you beat this HIGHSCORE " + highscore.topScore +" ? Press enter to play! ") );
+  readlineSync.question( chalk.blue("Can you beat this HIGHSCORE " + highscore.topScore +" ? Press enter to play! \n") );
   playGame();
 }
  
 
 function checkAnswer(n,question, answer){
-  var userAnswer = readlineSync.question(n + "." +question);
+  var userAnswer = readlineSync.question(n + "." + chalk.cyan(question));
 
   if(userAnswer.toLowerCase() === answer.toLowerCase()){
     console.log(correct("You are right! "));
@@ -77,7 +88,7 @@ function checkAnswer(n,question, answer){
     console.log(error("You are wrong! "));
     console.log("Current Score: " + chalk.red(score) );
   }
-  console.log("--------!");
+  console.log("\n");
 }
 
 function playGame(){
@@ -88,14 +99,14 @@ function playGame(){
 }
 
 function displayScore(){
-  console.log((chalk.yellow("Hurray! Your total score is " + chalk.green(score))));
+  console.log((chalk.blue("Hurray! Your total score is " + chalk.green(score))));
 
   if(score > highscore.topScore){
     highscore.topScore = score;
     console.log("Congratulations! You have beaten the highscore");
     console.log("New HIGHSCORE: "+ highscore);
   }
-  console.log(chalk.yellow("Thanks for playing. Don't forget to share the screenshot!") );
+  console.log(chalk.blue("Thanks for playing. Don't forget to share the screenshot!") );
 }
 
 welcomeMessage();
