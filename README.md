@@ -14,5 +14,6 @@ You can try the quiz on clicking the below link
 * Welcomed the user with welcome message
 * 10 simple questions to be answered by the user
 * Displayed the user's current score
-* Leaderboard having highest scored users with score
- 
+* Displaying the final score of user
+* Leaderboard showing highest scored users with score
+* If final score of user is greater updating the leaderboard and greet the user by displaying a message
